@@ -1,0 +1,27 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Xml.Schema;
+
+namespace _1._1
+{
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Enter Height: ");
+            double height =Convert.ToInt32(Console.ReadLine());
+            Console.WriteLine("Enter Width: ");
+            double width = Convert.ToInt32(Console.ReadLine());
+            double area = height * width;
+            Console.WriteLine("Area = " + area);
+            Console.ReadLine();
+        }
+        static double area(double height, double width)
+        {
+            return height * width;
+        }
+    }
+}
