@@ -1,0 +1,41 @@
+using System;
+
+namespace TempQue
+{
+    public class TemperatureTracker
+    {
+        public double[] Temperature = new double[7];
+
+        public void DailyTemperature()
+        {
+            for (int i = 0; i < 7; i++)
+            {
+                Console.WriteLine($"Enter Temperature for day {i + 1}: ");
+                Temperature[i] = double.Parse(Console.ReadLine());
+            }
+        }
+
+        public void Report()
+        {
+            Console.WriteLine("Weekly Temperature Report: ");
+
+            for (int i = 0; i < 7; i++)
+            {
+                Console.WriteLine($"Day {i + 1}: {Temperature[i]}°C");
+            }
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            TemperatureTracker tracker = new TemperatureTracker();
+            tracker.DailyTemperature();
+            Console.WriteLine("\n");
+            tracker.Report();
+
+            Console.ReadLine();
+        }
+    }
+}
