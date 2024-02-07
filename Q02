@@ -1,0 +1,43 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Lab2
+{
+    public class BankAccount
+    {
+        public int AccountNumber;
+        public double Balance;
+
+        public void deposit(double amount)
+        {
+            Balance += amount;
+        }
+
+
+    }
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            BankAccount account = new BankAccount();
+
+            Console.WriteLine("Enter the acoount number: ");
+            account.AccountNumber = int.Parse(Console.ReadLine());
+
+            Console.Write("Enter the deposit amount: ");
+            double amount=double.Parse(Console.ReadLine());
+
+            account.deposit(amount);
+
+            Console.WriteLine("Account Number "+account.AccountNumber);
+            Console.WriteLine("Updated Balance " + account.Balance);
+
+            Console.ReadLine();
+
+        }
+
+    }
+}
