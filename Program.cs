@@ -1,43 +1,79 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
-class Employee
+namespace Lab03Q3
 {
-    // Properties
-    public int EmployeeID { get; } 
-    public string FullName { get; set; } 
-    public double Salary { get; set; } 
+    using System;
 
-    // Constructor
-    public Employee(int employeeID, string fullName, double salary)
+    class Product
     {
-        EmployeeID = employeeID;
-        FullName = fullName;
-        Salary = salary;
+
+        private int productId;
+        private string productName;
+        private double price;
+        private int quantityInStock;
+
+        public Product(int productId, string productName, double price, int quantityInStock)
+        {
+            this.productId = productId;
+            this.productName = productName;
+            this.price = price;
+            this.quantityInStock = quantityInStock;
+        }
+
+        public void AddProduct()
+        {
+            Console.WriteLine("Product added to inventory.");
+        }
+
+        public void BuyProduct()
+        {
+            if (quantityInStock > 0)
+            {
+                Console.WriteLine($"Product purchased: {productName}");
+                quantityInStock--;
+            }
+            else
+            {
+                Console.WriteLine("Product out of stock.");
+            }
+        }
+
+        public void DisplayProductName()
+        {
+            Console.WriteLine($"Product Name: {productName}");
+        }
+
+        public void DisplayProductPrice()
+        {
+            Console.WriteLine($"Product Price: ${price}");
+        }
+
+        public void DisplayQuantityInStock()
+        {
+            Console.WriteLine($"Quantity in Stock: {quantityInStock}");
+        }
     }
 
-    public void DisplayEmployeeInfo()
+    class Program
     {
-        Console.WriteLine($"Employee ID: {EmployeeID}");
-        Console.WriteLine($"Full Name: {FullName}");
-        Console.WriteLine($"Salary: {Salary:C}");
+        static void Main()
+        {
+            Product laptop = new Product(101, "Laptop", 800, 10);
+
+            laptop.DisplayProductName();
+            laptop.DisplayProductPrice();
+            laptop.DisplayQuantityInStock();
+
+
+            laptop.BuyProduct();
+            laptop.DisplayQuantityInStock();
+
+            Console.ReadLine();
+        }
     }
-}
 
-class Program
-{
-    static void Main()
-    {
-        Employee employee = new Employee(101, "John Doe", 50000);
-
-        Console.WriteLine($"Employee ID: {employee.EmployeeID}");
-
-        employee.FullName = "Jane Doe";
-        Console.WriteLine($"Updated Full Name: {employee.FullName}");
-
-        employee.Salary = 55000;
-
-        employee.DisplayEmployeeInfo();
-
-        Console.ReadLine();
-    }
 }
