@@ -15,7 +15,6 @@ namespace lab_sheet
 
         public virtual void CalculateArea(double val1, double val2)
         {
-            // Base implementation for generic shapes
         }
 
         public virtual void DisplayShapeInfo()
@@ -92,23 +91,19 @@ namespace lab_sheet
     {
         static void Main()
         {
-            // a) Create an instance of the Rectangle class
             Rectangle rectangle = new Rectangle();
             rectangle.SetDimensions(5, 3);
 
-            // b) Display shape information for the rectangle
             Console.WriteLine("Rectangle Information:");
             rectangle.DisplayShapeInfo();
             Console.WriteLine();
 
-            // c) Create an instance of the Circle class
             Circle circle = new Circle();
             circle.SetRadius(4);
 
-            // d) Display shape information for the circle
             Console.WriteLine("Circle Information:");
             circle.DisplayShapeInfo();
             Console.ReadLine();
-        }
-    }
+        }
+    }
 }
