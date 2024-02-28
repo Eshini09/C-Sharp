@@ -1,0 +1,114 @@
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace lab_sheet
+{
+
+
+    class Shape
+    {
+        public string ShapeType { get; set; }
+        public double Area { get; set; }
+
+        public virtual void CalculateArea(double val1, double val2)
+        {
+            // Base implementation for generic shapes
+        }
+
+        public virtual void DisplayShapeInfo()
+        {
+            Console.WriteLine($"Shape Type: {ShapeType}");
+            Console.WriteLine($"Area: {Area}");
+        }
+
+        public Shape()
+        {
+            ShapeType = "Generic Shape";
+            Area = 0.0;
+        }
+    }
+
+    class Rectangle : Shape
+    {
+        public double Length { get; set; }
+        public double Width { get; set; }
+
+        public override void CalculateArea(double length, double width)
+        {
+            Length = length;
+            Width = width;
+            Area = Length * Width;
+        }
+
+        public override void DisplayShapeInfo()
+        {
+            base.DisplayShapeInfo();
+            Console.WriteLine($"Length: {Length}");
+            Console.WriteLine($"Width: {Width}");
+        }
+
+        public Rectangle()
+        {
+            ShapeType = "Rectangle";
+        }
+
+        public void SetDimensions(double length, double width)
+        {
+            CalculateArea(length, width);
+        }
+    }
+
+    class Circle : Shape
+    {
+        public double Radius { get; set; }
+
+        public override void CalculateArea(double radius, double dummy)
+        {
+            Radius = radius;
+            Area = Math.PI * Math.Pow(Radius, 2);
+        }
+
+        public override void DisplayShapeInfo()
+        {
+            base.DisplayShapeInfo();
+            Console.WriteLine($"Radius: {Radius}");
+        }
+
+        public Circle()
+        {
+            ShapeType = "Circle";
+        }
+
+        public void SetRadius(double radius)
+        {
+            CalculateArea(radius, 0);
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            // a) Create an instance of the Rectangle class
+            Rectangle rectangle = new Rectangle();
+            rectangle.SetDimensions(5, 3);
+
+            // b) Display shape information for the rectangle
+            Console.WriteLine("Rectangle Information:");
+            rectangle.DisplayShapeInfo();
+            Console.WriteLine();
+
+            // c) Create an instance of the Circle class
+            Circle circle = new Circle();
+            circle.SetRadius(4);
+
+            // d) Display shape information for the circle
+            Console.WriteLine("Circle Information:");
+            circle.DisplayShapeInfo();
+            Console.ReadLine();
+        }
+    }
+}
