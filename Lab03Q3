@@ -6,8 +6,6 @@ using System.Threading.Tasks;
 
 namespace Lab03Q3
 {
-    using System;
-
     class Product
     {
 
