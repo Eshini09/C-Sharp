@@ -1,0 +1,89 @@
+using System;
+
+namespace Lab3_q1
+{
+    public class Course
+    {
+        private string courseName;
+        private string instructorName;
+        private double grade;
+
+        public string GetCourseName()
+        {
+            return courseName;
+        }
+
+        public string GetInstructorName()
+        {
+            return instructorName;
+        }
+
+        public void SetCourseName(string courseN)
+        {
+            courseName = courseN;
+        }
+
+        public void SetInstructorName(string name)
+        {
+            if (!string.IsNullOrEmpty(name))
+            {
+                instructorName = name;
+            }
+            else
+            {
+                throw new ArgumentException("Instructor's name cannot be empty or null.");
+            }
+        }
+
+        public void SetGrade(double g)
+        {
+            grade = g;
+        }
+
+        public string CalculateLetterGrade(double g)
+        {
+            if (g > 75)
+            {
+                return "A";
+            }
+            else if (g > 65)
+            {
+                return "B";
+            }
+            else if (g > 55)
+            {
+                return "C";
+            }
+            else if (g > 35)
+            {
+                return "S";
+            }
+            else
+            {
+                return "F";
+            }
+        }
+
+        public void PrintCourseInfo()
+        {
+            Console.WriteLine("Course Name: " + courseName);
+            Console.WriteLine("Instructor Name: " + instructorName);
+            Console.WriteLine("Grade: " + CalculateLetterGrade(grade));
+        }
+    }
+
+    internal class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("NSBM Lab Practicals");
+            Course course = new Course();
+            course.SetCourseName("C#");
+            course.SetInstructorName("John Doe");
+            course.SetGrade(62);
+            course.PrintCourseInfo();
+            Console.WriteLine("Course name: " + course.GetCourseName());
+            Console.ReadLine();
+        }
+    }
+}
